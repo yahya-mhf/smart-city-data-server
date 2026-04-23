@@ -1,0 +1,23 @@
+# requests
+
+getdata() {
+	url=$1
+	
+	curl -X GET "$url" \
+		--header 'Content-Type: application/json' \
+		--header 'Accept: application/json'
+}
+
+setdata() {
+	url=$1
+	body='{
+	"sensorId": "s1",
+	"time": "4-22-2026 23:51",
+	"location": "Marrakech, coordinates"
+}'
+
+	curl -X POST "$url" \
+		--header 'Content-Type: application/json' \
+		--header 'Accept: application/json' \
+		-d "$body"
+}
